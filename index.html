@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./include/jquery_ui/themes/start/jquery-ui.min.css">
+  <script src="./include/jquery/jquery-1.12.4.min.js"></script>
+  <script src="./include/jquery_ui/jquery-ui.min.js"></script>
+  <!-- ################################ For files reder ###############################-->
+  <!--PDF-->
+  <link rel="stylesheet" href="./include/pdf/pdf.viewer.css">
+  <script src="./include/pdf/pdf.js"></script>
+  <!--Docs-->
+  <script src="./include/docx/jszip-utils.js"></script>
+  <script src="./include/docx/mammoth.browser.min.js"></script>
+  <!--PPTX-->
+  <link rel="stylesheet" href="./include/PPTXjs/css/pptxjs.css">
+  <link rel="stylesheet" href="./include/PPTXjs/css/nv.d3.min.css">
+  <link rel="stylesheet" href="./include/revealjs/reveal.css">
+
+  <script type="text/javascript" src="./include/PPTXjs/js/filereader.js"></script>
+  <script type="text/javascript" src="./include/PPTXjs/js/d3.min.js"></script>
+  <script type="text/javascript" src="./include/PPTXjs/js/nv.d3.min.js"></script>
+  <script type="text/javascript" src="./include/PPTXjs/js/pptxjs.js"></script>
+  <script type="text/javascript" src="./include/PPTXjs/js/divs2slides.js"></script>
+  <!--All Spreadsheet -->
+  <link rel="stylesheet" href="./include/SheetJS/handsontable.full.min.css">
+  <script type="text/javascript" src="./include/SheetJS/handsontable.full.min.js"></script>
+  <script type="text/javascript" src="./include/SheetJS/xlsx.full.min.js"></script>
+  <!--Image viewer-->
+  <link rel="stylesheet" href="./include/verySimpleImageViewer/css/jquery.verySimpleImageViewer.css">
+  <script type="text/javascript" src="./include/verySimpleImageViewer/js/jquery.verySimpleImageViewer.js"></script>
+  <!--officeToHtml-->
+  <script src="./include/officeToHtml.js"></script>
+  <link rel="stylesheet" href="./include/officeToHtml.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="container" class="flex">
+    <!-- <div class="flex justify-center w-screen">
+      <div class="flex flex-col items-center justify-center w-1/4">
+        <p>Word</p>
+        <div>
+          <a href="/ViewerJS/#../data/word/File1.pdf">Test</a>
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-center w-1/4">
+        <p>Excel</p>
+        <div>
+          <a href="/ViewerJS/#../data/excel/Simpleinvoice1.pdf">Test</a>
+        </div>
+      </div>
+      <div class="flex flex-col items-center justify-center w-1/4">
+        <p>PowerPoint</p>
+        <div>
+          <p>Test1.docx</p>
+        </div>
+      </div>
+    </div> -->
+
+    <div id="resolte-contaniner" style="width: 50%; height:550px; overflow: auto;"></div>
+  </div>
+  <script>
+    (function ($) {
+      // config your file path
+      var file_path = "data/excel/Simpleinvoice1.xlsx";
+      $("#resolte-contaniner").officeToHtml({
+        url: file_path,
+        docxSetting: {
+          styleMap: null,
+          includeEmbeddedStyleMap: true,
+          includeDefaultStyleMap: true,
+          convertImage: null,
+          ignoreEmptyParagraphs: false,
+          idPrefix: "",
+          isRtl: "auto"
+        },
+        sheetSetting: {
+          jqueryui: false,
+          activeHeaderClassName: "",
+          allowEmpty: true,
+          autoColumnSize: true,
+          autoRowSize: false,
+          columns: false,
+          columnSorting: true,
+          contextMenu: false,
+          copyable: true,
+          customBorders: false,
+          fixedColumnsLeft: 0,
+          fixedRowsTop: 0,
+          language: 'en-US',
+          search: false,
+          selectionMode: 'single',
+          sortIndicator: false,
+          readOnly: false,
+          startRows: 1,
+          startCols: 1,
+          rowHeaders: true,
+          colHeaders: true,
+          width: false,
+          height: false
+        }
+      });
+
+    }(jQuery));
+  </script>
+</body>
+
+</html>
